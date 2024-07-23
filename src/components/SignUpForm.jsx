@@ -39,11 +39,11 @@ const SignUpForm = ({ setToken }) => {
 
       <form onSubmit={handleSubmit}>
         <label>          
-          Username:  <input value={username} onChange={(event) => {setUserName(event.target.value)}}/>          
+          Username:  <input required value={username} onChange={(event) => {setUserName(event.target.value)}}/>          
         </label>
         <br/>
         <label>          
-          Password:  <input type="password" value={password} onChange={(event) => {setPassword(event.target.value)}}/>          
+          Password:  <input required type="password" value={password} onChange={(event) => {setPassword(event.target.value)}}/>          
         </label>
         <br/>
         <button>Submit</button>
