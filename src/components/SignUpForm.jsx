@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SignUpForm = () => {
+const SignUpForm = ({ setToken }) => {
 
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -22,7 +22,10 @@ const SignUpForm = () => {
         })
       });
       const jsonResponse = await response.json();
-      console.log(jsonResponse)  
+      
+      setToken(jsonResponse.token)
+      console.log('Submit call', jsonResponse)
+
     } catch (err) {
       setError(err.message)
     }
@@ -40,7 +43,7 @@ const SignUpForm = () => {
         </label>
         <br/>
         <label>          
-          Password:  <input value={password} onChange={(event) => {setPassword(event.target.value)}}/>          
+          Password:  <input type="password" value={password} onChange={(event) => {setPassword(event.target.value)}}/>          
         </label>
         <br/>
         <button>Submit</button>
